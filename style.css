@@ -1,0 +1,1582 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: gilroy, sans-serif;
+  background: #111;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+  --bg: #111;
+  --white: #fff;
+  --gray: #a7a7a7;
+  --green: #0ba34e;
+
+  --container: 85%;
+  --radius: 20px;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  height: 90px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 0 7%;
+  background: #111;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 999;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-item:hover h4 {
+  color: var(--green);
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown {
+  position: absolute;
+  top: 180%;
+  left: 0;
+
+  background: #1a1a1a;
+
+  min-width: 220px;
+
+  padding: 1rem;
+
+  border-radius: 12px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(10px);
+
+  transition: 0.3s;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.7rem 0;
+
+  color: #ccc;
+
+  transition: 0.3s;
+}
+
+.dropdown a:hover {
+  color: var(--green);
+  padding-left: 5px;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: var(--green);
+
+  color: #fff;
+
+  padding: 14px 22px;
+
+  border-radius: 50px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* =========================
+   MOBILE NAVBAR
+========================= */
+/* =========================
+   PAGE 1 / HERO
+========================= */
+
+#page1 {
+  min-height: 100vh;
+
+  width: 100%;
+
+  background: #111;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  padding: 120px 5% 60px;
+
+  overflow: hidden;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  text-align: center;
+
+  max-width: 1200px;
+
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: clamp(3rem, 9vw, 8rem);
+
+  line-height: 0.95;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: -3px;
+}
+
+.hero-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(50px, 6vw, 90px);
+  height: clamp(50px, 6vw, 90px);
+
+  background: #0ba34e;
+
+  border-radius: 50%;
+
+  vertical-align: middle;
+
+  margin: 0 10px;
+}
+
+.hero-icon i {
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+}
+
+.hero-content p {
+  margin: 2rem auto;
+
+  max-width: 750px;
+
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+
+  line-height: 1.8;
+
+  color: #b3b3b3;
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.hero-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.hero-tags span {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  padding: 12px 22px;
+
+  border-radius: 50px;
+
+  font-size: 0.95rem;
+
+  color: #d5d5d5;
+
+  transition: 0.3s;
+}
+
+.hero-tags span:hover {
+  border-color: #0ba34e;
+  color: #0ba34e;
+}
+
+/* =========================
+   MOVING LOGOS
+========================= */
+
+.logo-strip {
+  position: absolute;
+
+  bottom: 40px;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 1rem 0;
+
+  z-index: 1;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+
+  gap: 5rem;
+
+  width: max-content;
+
+  animation: marquee 20s linear infinite;
+}
+
+.logo-track img {
+  height: 28px;
+
+  opacity: 0.7;
+
+  transition: 0.3s;
+}
+
+.logo-track img:hover {
+  opacity: 1;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  #page1 {
+    padding-top: 140px;
+  }
+
+  .hero-content h1 {
+    letter-spacing: -1px;
+  }
+
+  .logo-track {
+    gap: 3rem;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  #page1 {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.8rem, 13vw, 5rem);
+
+    line-height: 1.05;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  .hero-tags {
+    gap: 0.7rem;
+  }
+
+  .hero-tags span {
+    font-size: 0.85rem;
+
+    padding: 10px 16px;
+  }
+
+  .logo-track {
+    gap: 2rem;
+  }
+
+  .logo-track img {
+    height: 22px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .hero-icon i {
+    font-size: 1.2rem;
+  }
+}
+/* =========================
+   finished hero section
+========================= */
+/* =========================
+   PAGE 2
+========================= */
+
+#page2 {
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: #111;
+
+  padding: 8rem 7%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.page2-left {
+  width: 38%;
+
+  position: sticky;
+  top: 120px;
+
+  height: fit-content;
+}
+
+.small-text {
+  color: #8d8d8d;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 2rem;
+
+  font-size: 0.9rem;
+}
+
+.page2-left h2 {
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  color: #f1f1f1;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.page2-right {
+  width: 55%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   ARTICLE CARD
+========================= */
+
+.article-card {
+  position: relative;
+
+  padding: 2rem 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  overflow: hidden;
+}
+
+.article-content h3 {
+  font-size: clamp(1.3rem, 2vw, 2rem);
+
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  transition: 0.4s;
+}
+
+.article-card:hover h3 {
+  color: #0ba34e;
+}
+
+/* =========================
+   FLOATING IMAGE
+========================= */
+
+.article-card img {
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(0);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
+  z-index: 10;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  #page2 {
+    flex-direction: column;
+
+    gap: 4rem;
+  }
+
+  .page2-left {
+    width: 100%;
+
+    position: relative;
+    top: 0;
+  }
+
+  .page2-right {
+    width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  #page2 {
+    padding: 6rem 5%;
+  }
+
+  .page2-left h2 {
+    line-height: 1.5;
+  }
+
+  .article-card {
+    padding: 1.8rem 0;
+  }
+
+  .article-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .article-card img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .page2-left h2 {
+    font-size: 1.5rem;
+  }
+
+  .article-content h3 {
+    font-size: 1.1rem;
+  }
+}
+/* =========================
+   PAGE 3
+========================= */
+
+#page3 {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: url("https://lazarev.kiev.ua/la24/reel-cover.webp") center/cover
+    no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* =========================
+   DARK OVERLAY
+========================= */
+
+.page3-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 1;
+}
+
+/* =========================
+   CENTER CONTENT
+========================= */
+
+.page3-content {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.5rem;
+}
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+.play-button {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.4s;
+}
+
+.play-button:hover {
+  transform: scale(1.08);
+}
+
+.play-button i {
+  color: #111;
+
+  font-size: 3rem;
+}
+
+.page3-content h4 {
+  background: #fff;
+
+  color: #111;
+
+  padding: 14px 28px;
+
+  border-radius: 50px;
+
+  font-size: 0.9rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  font-weight: 700;
+}
+
+/* =========================
+   VIDEO MODAL
+========================= */
+
+.video-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.4s ease;
+
+  z-index: 9999;
+}
+
+.video-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-modal video {
+  width: min(1100px, 95vw);
+
+  max-height: 90vh;
+
+  border-radius: 20px;
+
+  object-fit: cover;
+
+  background: #000;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-video {
+  position: absolute;
+
+  top: 30px;
+  right: 30px;
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.close-video i {
+  color: #111;
+
+  font-size: 2rem;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  .play-button {
+    width: 100px;
+    height: 100px;
+  }
+
+  .play-button i {
+    font-size: 2.5rem;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  #page3 {
+    min-height: 80vh;
+  }
+
+  .play-button {
+    width: 85px;
+    height: 85px;
+  }
+
+  .play-button i {
+    font-size: 2rem;
+  }
+
+  .page3-content h4 {
+    font-size: 0.8rem;
+
+    padding: 12px 22px;
+  }
+
+  .video-modal {
+    padding: 1rem;
+  }
+
+  .video-modal video {
+    width: 100%;
+
+    border-radius: 14px;
+  }
+
+  .close-video {
+    width: 45px;
+    height: 45px;
+
+    top: 15px;
+    right: 15px;
+  }
+
+  .close-video i {
+    font-size: 1.5rem;
+  }
+}
+/* =========================
+   PAGE 4
+========================= */
+
+#page4 {
+  width: 100%;
+
+  background: #fff;
+
+  padding: 8rem 7%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8rem;
+}
+
+/* =========================
+   PORTFOLIO CARD
+========================= */
+
+.portfolio-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 4rem;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.portfolio-left {
+  width: 30%;
+
+  position: sticky;
+  top: 120px;
+}
+
+.portfolio-left h2 {
+  font-size: clamp(2rem, 3vw, 3.5rem);
+
+  color: #111;
+
+  margin-bottom: 2rem;
+
+  font-weight: 600;
+}
+
+.portfolio-left p {
+  color: #555;
+
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.portfolio-right {
+  width: 65%;
+
+  position: relative;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  background: #000;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.portfolio-right img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: 0.5s ease;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.portfolio-right video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transition: 0.4s ease;
+}
+
+/* =========================
+   HOVER EFFECT
+========================= */
+
+.portfolio-right:hover video {
+  opacity: 1;
+}
+
+.portfolio-right:hover img {
+  transform: scale(1.03);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  .portfolio-card {
+    flex-direction: column;
+
+    gap: 2rem;
+  }
+
+  .portfolio-left {
+    width: 100%;
+
+    position: relative;
+    top: 0;
+  }
+
+  .portfolio-right {
+    width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  #page4 {
+    padding: 6rem 5%;
+
+    gap: 5rem;
+  }
+
+  .portfolio-left h2 {
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-left p {
+    font-size: 1rem;
+  }
+
+  .portfolio-right {
+    border-radius: 18px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .portfolio-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .portfolio-left p {
+    line-height: 1.7;
+  }
+}
+/* =========================
+   PAGE 5
+========================= */
+
+#page5 {
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: #111;
+
+  padding: 8rem 7%;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.services-left {
+  width: 25%;
+}
+
+.service-btn {
+  position: sticky;
+
+  top: 120px;
+
+  background: #0ba34e;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 18px 32px;
+
+  border-radius: 60px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.service-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.services-right {
+  width: 70%;
+}
+
+.services-intro {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+
+  line-height: 1.8;
+
+  color: #d8d8d8;
+
+  margin-bottom: 5rem;
+}
+
+/* =========================
+   ACCORDION
+========================= */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+/* =========================
+   ITEM
+========================= */
+
+.accordion-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding-top: 2rem;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.accordion-header h2 {
+  font-size: clamp(2rem, 3vw, 3.5rem);
+
+  font-weight: 500;
+}
+
+.accordion-header i {
+  font-size: 2rem;
+
+  transition: 0.3s;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.accordion-content {
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition: max-height 0.5s ease;
+
+  padding-top: 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 1000px;
+
+  padding-top: 2rem;
+}
+
+.accordion-item.active .accordion-header i {
+  transform: rotate(45deg);
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-bottom: 3rem;
+}
+
+.service-tags span {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  padding: 10px 20px;
+
+  border-radius: 50px;
+
+  color: #d5d5d5;
+
+  font-size: 0.9rem;
+}
+
+/* =========================
+   SERVICE CARD
+========================= */
+
+.service-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 2rem;
+
+  padding: 2rem 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  padding-left: 1rem;
+
+  border-color: #0ba34e;
+}
+
+.service-text {
+  width: 85%;
+}
+
+.service-text h3 {
+  font-size: 1.5rem;
+
+  margin-bottom: 1rem;
+
+  font-weight: 500;
+}
+
+.service-text p {
+  color: #aaa;
+
+  line-height: 1.8;
+
+  font-size: 1rem;
+}
+
+.service-card i {
+  font-size: 1.5rem;
+
+  color: #fff;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  #page5 {
+    flex-direction: column;
+
+    gap: 4rem;
+  }
+
+  .services-left {
+    width: 100%;
+  }
+
+  .services-right {
+    width: 100%;
+  }
+
+  .service-btn {
+    position: relative;
+
+    top: 0;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  #page5 {
+    padding: 6rem 5%;
+  }
+
+  .services-intro {
+    line-height: 1.7;
+
+    margin-bottom: 4rem;
+  }
+
+  .accordion-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-card {
+    flex-direction: column;
+
+    gap: 1rem;
+  }
+
+  .service-text {
+    width: 100%;
+  }
+
+  .service-text h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .accordion-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-tags span {
+    font-size: 0.8rem;
+  }
+
+  .service-text p {
+    font-size: 0.95rem;
+  }
+}
+/* =========================
+   PAGE 6
+========================= */
+
+#page6 {
+  width: 100%;
+
+  background: #fff;
+
+  padding: 8rem 7%;
+
+  color: #111;
+}
+
+/* =========================
+   TOP SECTION
+========================= */
+
+.process-top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  padding-bottom: 5rem;
+
+  margin-bottom: 5rem;
+}
+
+.process-top h1 {
+  font-size: clamp(3rem, 7vw, 7rem);
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  margin-bottom: 5rem;
+
+  max-width: 1000px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.process-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 4rem;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.process-btn {
+  width: 30%;
+}
+
+.process-btn button {
+  background: #4f5bff;
+
+  color: #fff;
+
+  border: none;
+
+  padding: 20px 32px;
+
+  border-radius: 60px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: 0.3s;
+}
+
+.process-btn button:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.process-text {
+  width: 65%;
+}
+
+.process-text p {
+  font-size: 1.3rem;
+
+  line-height: 1.9;
+
+  color: #444;
+
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   PROCESS GRID
+========================= */
+
+.process-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 2rem;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.process-card {
+  background: #f5f5f5;
+
+  border-radius: 24px;
+
+  padding: 2rem;
+
+  transition: 0.3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-8px);
+
+  background: #ededed;
+}
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.process-card h3 {
+  font-size: 1.5rem;
+
+  margin-bottom: 2rem;
+
+  font-weight: 600;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.process-card ul {
+  list-style: none;
+}
+
+.process-card li {
+  padding: 1rem 0;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+  color: #555;
+
+  transition: 0.3s;
+}
+
+.process-card li:hover {
+  color: #111;
+
+  padding-left: 8px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  .process-content {
+    flex-direction: column;
+
+    gap: 3rem;
+  }
+
+  .process-btn {
+    width: 100%;
+  }
+
+  .process-text {
+    width: 100%;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  #page6 {
+    padding: 6rem 5%;
+  }
+
+  .process-top h1 {
+    margin-bottom: 3rem;
+  }
+
+  .process-text p {
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-card {
+    border-radius: 18px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .process-btn button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .process-card {
+    padding: 1.5rem;
+  }
+
+  .process-card h3 {
+    font-size: 1.3rem;
+  }
+}
