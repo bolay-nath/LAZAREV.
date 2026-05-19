@@ -58,23 +58,18 @@ button {
    NAVBAR
 ========================= */
 
-.navbar {
+nav {
   width: 100%;
   height: 90px;
-
   position: fixed;
   top: 0;
   left: 0;
-
   padding: 0 7%;
   background: #111;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   z-index: 999;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -113,29 +108,21 @@ button {
   position: absolute;
   top: 180%;
   left: 0;
-
   background: #1a1a1a;
-
   min-width: 220px;
-
   padding: 1rem;
-
   border-radius: 12px;
-
   opacity: 0;
   visibility: hidden;
-
   transform: translateY(10px);
-
   transition: 0.3s;
+  z-index: 1000;
 }
 
 .dropdown a {
   display: block;
   padding: 0.7rem 0;
-
   color: #ccc;
-
   transition: 0.3s;
 }
 
@@ -162,20 +149,14 @@ button {
 
 .nav-btn {
   background: var(--green);
-
   color: #fff;
-
   padding: 14px 22px;
-
   border-radius: 50px;
-
   font-size: 0.9rem;
   font-weight: 600;
-
   display: flex;
   align-items: center;
   gap: 8px;
-
   transition: 0.3s;
 }
 
@@ -185,34 +166,86 @@ button {
 
 .menu-toggle {
   display: none;
-
   font-size: 2rem;
   cursor: pointer;
+  color: #fff;
+  background: none;
+  padding: 0;
 }
 
 /* =========================
    MOBILE NAVBAR
 ========================= */
+
+@media (max-width: 992px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: #1a1a1a;
+    gap: 0;
+    display: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 1rem 7%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-item h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  .dropdown {
+    position: static;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    background: #111;
+    transition: 0.3s ease;
+  }
+
+  .nav-item.active .dropdown {
+    opacity: 1;
+    visibility: visible;
+    max-height: 300px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-btn {
+    padding: 12px 18px;
+    font-size: 0.85rem;
+  }
+}
+
 /* =========================
    PAGE 1 / HERO
 ========================= */
 
 #page1 {
   min-height: 100vh;
-
   width: 100%;
-
   background: #111;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   position: relative;
-
   padding: 120px 5% 60px;
-
   overflow: hidden;
 }
 
@@ -222,39 +255,27 @@ button {
 
 .hero-content {
   text-align: center;
-
   max-width: 1200px;
-
   z-index: 2;
 }
 
 .hero-content h1 {
   font-size: clamp(3rem, 9vw, 8rem);
-
   line-height: 0.95;
-
   font-weight: 900;
-
   text-transform: uppercase;
-
   letter-spacing: -3px;
 }
 
 .hero-icon {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   width: clamp(50px, 6vw, 90px);
   height: clamp(50px, 6vw, 90px);
-
   background: #0ba34e;
-
   border-radius: 50%;
-
   vertical-align: middle;
-
   margin: 0 10px;
 }
 
@@ -264,13 +285,9 @@ button {
 
 .hero-content p {
   margin: 2rem auto;
-
   max-width: 750px;
-
   font-size: clamp(1rem, 1.5vw, 1.3rem);
-
   line-height: 1.8;
-
   color: #b3b3b3;
 }
 
@@ -282,23 +299,16 @@ button {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
   gap: 1rem;
-
   margin-top: 2rem;
 }
 
 .hero-tags span {
   border: 1px solid rgba(255, 255, 255, 0.2);
-
   padding: 12px 22px;
-
   border-radius: 50px;
-
   font-size: 0.95rem;
-
   color: #d5d5d5;
-
   transition: 0.3s;
 }
 
@@ -313,34 +323,24 @@ button {
 
 .logo-strip {
   position: absolute;
-
   bottom: 40px;
-
   width: 100%;
-
   overflow: hidden;
-
   padding: 1rem 0;
-
   z-index: 1;
 }
 
 .logo-track {
   display: flex;
   align-items: center;
-
   gap: 5rem;
-
   width: max-content;
-
   animation: marquee 20s linear infinite;
 }
 
 .logo-track img {
   height: 28px;
-
   opacity: 0.7;
-
   transition: 0.3s;
 }
 
@@ -388,13 +388,11 @@ button {
 
   .hero-content h1 {
     font-size: clamp(2.8rem, 13vw, 5rem);
-
     line-height: 1.05;
   }
 
   .hero-content p {
     font-size: 1rem;
-
     line-height: 1.7;
   }
 
@@ -404,7 +402,6 @@ button {
 
   .hero-tags span {
     font-size: 0.85rem;
-
     padding: 10px 16px;
   }
 
@@ -435,26 +432,19 @@ button {
     font-size: 1.2rem;
   }
 }
-/* =========================
-   finished hero section
-========================= */
+
 /* =========================
    PAGE 2
 ========================= */
 
 #page2 {
   width: 100%;
-
   min-height: 100vh;
-
   background: #111;
-
   padding: 8rem 7%;
-
   display: flex;
   justify-content: space-between;
   gap: 5rem;
-
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -464,32 +454,23 @@ button {
 
 .page2-left {
   width: 38%;
-
   position: sticky;
   top: 120px;
-
   height: fit-content;
 }
 
 .small-text {
   color: #8d8d8d;
-
   text-transform: uppercase;
-
   letter-spacing: 1px;
-
   margin-bottom: 2rem;
-
   font-size: 0.9rem;
 }
 
 .page2-left h2 {
   font-size: clamp(1.8rem, 3vw, 3.2rem);
-
   line-height: 1.4;
-
   font-weight: 500;
-
   color: #f1f1f1;
 }
 
@@ -499,7 +480,6 @@ button {
 
 .page2-right {
   width: 55%;
-
   display: flex;
   flex-direction: column;
 }
@@ -510,23 +490,16 @@ button {
 
 .article-card {
   position: relative;
-
   padding: 2rem 0;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
   cursor: pointer;
-
   overflow: hidden;
 }
 
 .article-content h3 {
   font-size: clamp(1.3rem, 2vw, 2rem);
-
   line-height: 1.4;
-
   font-weight: 500;
-
   transition: 0.4s;
 }
 
@@ -540,27 +513,18 @@ button {
 
 .article-card img {
   position: absolute;
-
   width: 140px;
   height: 140px;
-
   object-fit: cover;
-
   border-radius: 50%;
-
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%) scale(0);
-
   opacity: 0;
-
   pointer-events: none;
-
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
-
   z-index: 10;
 }
 
@@ -571,13 +535,11 @@ button {
 @media (max-width: 992px) {
   #page2 {
     flex-direction: column;
-
     gap: 4rem;
   }
 
   .page2-left {
     width: 100%;
-
     position: relative;
     top: 0;
   }
@@ -627,24 +589,20 @@ button {
     font-size: 1.1rem;
   }
 }
+
 /* =========================
    PAGE 3
 ========================= */
 
 #page3 {
   position: relative;
-
   width: 100%;
-
   min-height: 100vh;
-
   background: url("https://lazarev.kiev.ua/la24/reel-cover.webp") center/cover
     no-repeat;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
 }
 
@@ -654,11 +612,8 @@ button {
 
 .page3-overlay {
   position: absolute;
-
   inset: 0;
-
   background: rgba(0, 0, 0, 0.45);
-
   z-index: 1;
 }
 
@@ -668,14 +623,11 @@ button {
 
 .page3-content {
   position: relative;
-
   z-index: 2;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 1.5rem;
 }
 
@@ -686,17 +638,12 @@ button {
 .play-button {
   width: 120px;
   height: 120px;
-
   border-radius: 50%;
-
   background: #fff;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
-
   transition: 0.4s;
 }
 
@@ -706,25 +653,17 @@ button {
 
 .play-button i {
   color: #111;
-
   font-size: 3rem;
 }
 
 .page3-content h4 {
   background: #fff;
-
   color: #111;
-
   padding: 14px 28px;
-
   border-radius: 50px;
-
   font-size: 0.9rem;
-
   text-transform: uppercase;
-
   letter-spacing: 1px;
-
   font-weight: 700;
 }
 
@@ -734,22 +673,15 @@ button {
 
 .video-modal {
   position: fixed;
-
   inset: 0;
-
   background: rgba(0, 0, 0, 0.92);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 2rem;
-
   opacity: 0;
   visibility: hidden;
-
   transition: 0.4s ease;
-
   z-index: 9999;
 }
 
@@ -764,13 +696,9 @@ button {
 
 .video-modal video {
   width: min(1100px, 95vw);
-
   max-height: 90vh;
-
   border-radius: 20px;
-
   object-fit: cover;
-
   background: #000;
 }
 
@@ -780,27 +708,20 @@ button {
 
 .close-video {
   position: absolute;
-
   top: 30px;
   right: 30px;
-
   width: 55px;
   height: 55px;
-
   border-radius: 50%;
-
   background: #fff;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
 }
 
 .close-video i {
   color: #111;
-
   font-size: 2rem;
 }
 
@@ -839,7 +760,6 @@ button {
 
   .page3-content h4 {
     font-size: 0.8rem;
-
     padding: 12px 22px;
   }
 
@@ -849,14 +769,12 @@ button {
 
   .video-modal video {
     width: 100%;
-
     border-radius: 14px;
   }
 
   .close-video {
     width: 45px;
     height: 45px;
-
     top: 15px;
     right: 15px;
   }
@@ -865,20 +783,17 @@ button {
     font-size: 1.5rem;
   }
 }
+
 /* =========================
    PAGE 4
 ========================= */
 
 #page4 {
   width: 100%;
-
   background: #fff;
-
   padding: 8rem 7%;
-
   display: flex;
   flex-direction: column;
-
   gap: 8rem;
 }
 
@@ -890,7 +805,6 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   gap: 4rem;
 }
 
@@ -900,26 +814,20 @@ button {
 
 .portfolio-left {
   width: 30%;
-
   position: sticky;
   top: 120px;
 }
 
 .portfolio-left h2 {
   font-size: clamp(2rem, 3vw, 3.5rem);
-
   color: #111;
-
   margin-bottom: 2rem;
-
   font-weight: 600;
 }
 
 .portfolio-left p {
   color: #555;
-
   font-size: 1.1rem;
-
   line-height: 1.8;
 }
 
@@ -929,15 +837,10 @@ button {
 
 .portfolio-right {
   width: 65%;
-
   position: relative;
-
   border-radius: 24px;
-
   overflow: hidden;
-
   cursor: pointer;
-
   background: #000;
 }
 
@@ -947,13 +850,9 @@ button {
 
 .portfolio-right img {
   width: 100%;
-
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
   transition: 0.5s ease;
 }
 
@@ -963,16 +862,11 @@ button {
 
 .portfolio-right video {
   position: absolute;
-
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   opacity: 0;
-
   transition: 0.4s ease;
 }
 
@@ -995,13 +889,11 @@ button {
 @media (max-width: 992px) {
   .portfolio-card {
     flex-direction: column;
-
     gap: 2rem;
   }
 
   .portfolio-left {
     width: 100%;
-
     position: relative;
     top: 0;
   }
@@ -1017,21 +909,22 @@ button {
 
 @media (max-width: 768px) {
   #page4 {
+    background: #111;
     padding: 6rem 5%;
-
-    gap: 5rem;
+    gap: 4rem;
   }
 
   .portfolio-left h2 {
-    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.8rem;
   }
 
   .portfolio-left p {
-    font-size: 1rem;
+    color: #b3b3b3;
   }
 
-  .portfolio-right {
-    border-radius: 18px;
+  .portfolio-card {
+    gap: 1.5rem;
   }
 }
 
@@ -1040,257 +933,205 @@ button {
 ========================= */
 
 @media (max-width: 480px) {
+  #page4 {
+    padding: 4rem 5%;
+    gap: 3rem;
+  }
+
   .portfolio-left h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .portfolio-left p {
-    line-height: 1.7;
+    font-size: 1rem;
   }
 }
+
 /* =========================
-   PAGE 5
+   PAGE 5 - SERVICES
 ========================= */
 
 #page5 {
   width: 100%;
-
   min-height: 100vh;
-
   background: #111;
-
   padding: 8rem 7%;
-
   display: flex;
-  justify-content: space-between;
-  gap: 5rem;
+  gap: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* =========================
-   LEFT SIDE
-========================= */
+/* LEFT CTA */
 
 .services-left {
   width: 25%;
+  position: sticky;
+  top: 120px;
+  height: fit-content;
 }
 
 .service-btn {
-  position: sticky;
-
-  top: 120px;
-
-  background: #0ba34e;
-
+  background: var(--green);
   color: #fff;
-
-  border: none;
-
-  padding: 18px 32px;
-
-  border-radius: 60px;
-
-  font-size: 1rem;
-
+  padding: 16px 28px;
+  border-radius: 50px;
+  font-size: 0.95rem;
   font-weight: 600;
-
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   transition: 0.3s;
+  width: 100%;
+  text-align: center;
 }
 
 .service-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* =========================
-   RIGHT SIDE
-========================= */
+/* RIGHT CONTENT */
 
 .services-right {
   width: 70%;
 }
 
 .services-intro {
-  font-size: clamp(1.2rem, 2vw, 2rem);
-
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.8;
-
-  color: #d8d8d8;
-
-  margin-bottom: 5rem;
+  color: #d5d5d5;
+  margin-bottom: 3rem;
 }
 
-/* =========================
-   ACCORDION
-========================= */
+/* ACCORDION */
 
 .accordion {
   display: flex;
   flex-direction: column;
-
-  gap: 2rem;
+  gap: 0;
 }
-
-/* =========================
-   ITEM
-========================= */
 
 .accordion-item {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-  padding-top: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-/* =========================
-   HEADER
-========================= */
 
 .accordion-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  padding: 2rem 0;
   cursor: pointer;
-}
-
-.accordion-header h2 {
-  font-size: clamp(2rem, 3vw, 3.5rem);
-
-  font-weight: 500;
-}
-
-.accordion-header i {
-  font-size: 2rem;
-
   transition: 0.3s;
 }
 
-/* =========================
-   CONTENT
-========================= */
-
-.accordion-content {
-  max-height: 0;
-
-  overflow: hidden;
-
-  transition: max-height 0.5s ease;
-
-  padding-top: 0;
+.accordion-header h2 {
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-.accordion-item.active .accordion-content {
-  max-height: 1000px;
-
-  padding-top: 2rem;
+.accordion-header i {
+  font-size: 1.5rem;
+  transition: 0.3s transform;
 }
 
 .accordion-item.active .accordion-header i {
   transform: rotate(45deg);
 }
 
-/* =========================
-   TAGS
-========================= */
+.accordion-item:hover .accordion-header h2 {
+  color: var(--green);
+}
+
+/* ACCORDION CONTENT */
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  padding-bottom: 2rem;
+}
+
+/* SERVICE TAGS */
 
 .service-tags {
   display: flex;
   flex-wrap: wrap;
-
-  gap: 1rem;
-
-  margin-bottom: 3rem;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
 }
 
 .service-tags span {
   border: 1px solid rgba(255, 255, 255, 0.2);
-
-  padding: 10px 20px;
-
+  padding: 8px 16px;
   border-radius: 50px;
-
-  color: #d5d5d5;
-
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: #a7a7a7;
+  transition: 0.3s;
 }
 
-/* =========================
-   SERVICE CARD
-========================= */
+.service-tags span:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* SERVICE CARD */
 
 .service-card {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   gap: 2rem;
-
-  padding: 2rem 0;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: 0.3s;
 }
 
 .service-card:hover {
   padding-left: 1rem;
-
-  border-color: #0ba34e;
-}
-
-.service-text {
-  width: 85%;
 }
 
 .service-text h3 {
-  font-size: 1.5rem;
-
-  margin-bottom: 1rem;
-
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
 }
 
 .service-text p {
-  color: #aaa;
-
-  line-height: 1.8;
-
-  font-size: 1rem;
+  color: #999;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .service-card i {
-  font-size: 1.5rem;
-
-  color: #fff;
+  font-size: 1.3rem;
+  color: var(--green);
+  flex-shrink: 0;
 }
 
-/* =========================
-   TABLET
-========================= */
+/* TABLET */
 
 @media (max-width: 992px) {
   #page5 {
     flex-direction: column;
-
-    gap: 4rem;
+    gap: 2rem;
   }
 
   .services-left {
     width: 100%;
+    position: relative;
+    top: 0;
   }
 
   .services-right {
     width: 100%;
   }
-
-  .service-btn {
-    position: relative;
-
-    top: 0;
-  }
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 768px) {
   #page5 {
@@ -1298,278 +1139,185 @@ button {
   }
 
   .services-intro {
-    line-height: 1.7;
-
-    margin-bottom: 4rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .accordion-header h2 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
   .service-card {
     flex-direction: column;
-
     gap: 1rem;
   }
 
-  .service-text {
-    width: 100%;
-  }
-
-  .service-text h3 {
-    font-size: 1.3rem;
+  .service-card i {
+    order: -1;
   }
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* SMALL MOBILE */
 
 @media (max-width: 480px) {
-  .accordion-header h2 {
-    font-size: 1.5rem;
+  #page5 {
+    padding: 4rem 5%;
   }
 
-  .service-tags span {
-    font-size: 0.8rem;
-  }
-
-  .service-text p {
+  .services-intro {
     font-size: 0.95rem;
   }
+
+  .accordion-header h2 {
+    font-size: 1.1rem;
+  }
 }
+
 /* =========================
-   PAGE 6
+   PAGE 6 - PROCESS
 ========================= */
 
 #page6 {
   width: 100%;
-
+  min-height: auto;
   background: #fff;
-
   padding: 8rem 7%;
-
   color: #111;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* =========================
-   TOP SECTION
-========================= */
+/* PROCESS TOP */
 
 .process-top {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
-  padding-bottom: 5rem;
-
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
 .process-top h1 {
-  font-size: clamp(3rem, 7vw, 7rem);
-
-  line-height: 1;
-
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 2rem;
   font-weight: 700;
-
-  margin-bottom: 5rem;
-
-  max-width: 1000px;
 }
-
-/* =========================
-   CONTENT
-========================= */
 
 .process-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
-  gap: 4rem;
+  gap: 3rem;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
 .process-btn {
-  width: 30%;
+  flex-shrink: 0;
 }
 
 .process-btn button {
-  background: #4f5bff;
-
+  background: #0ba34e;
   color: #fff;
-
-  border: none;
-
-  padding: 20px 32px;
-
-  border-radius: 60px;
-
-  font-size: 1rem;
-
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 0.9rem;
   font-weight: 600;
-
   display: flex;
   align-items: center;
-  gap: 10px;
-
+  gap: 8px;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .process-btn button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* =========================
-   TEXT
-========================= */
-
 .process-text {
-  width: 65%;
+  flex: 1;
 }
 
 .process-text p {
-  font-size: 1.3rem;
-
-  line-height: 1.9;
-
-  color: #444;
-
-  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
 }
 
-/* =========================
-   PROCESS GRID
-========================= */
+/* PROCESS GRID */
 
 .process-grid {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 2rem;
 }
 
-/* =========================
-   CARD
-========================= */
-
 .process-card {
   background: #f5f5f5;
-
-  border-radius: 24px;
-
   padding: 2rem;
-
-  transition: 0.3s ease;
+  border-radius: 16px;
+  transition: 0.3s;
 }
 
 .process-card:hover {
-  transform: translateY(-8px);
-
-  background: #ededed;
+  background: #eee;
+  transform: translateY(-5px);
 }
-
-/* =========================
-   CARD TITLE
-========================= */
 
 .process-card h3 {
-  font-size: 1.5rem;
-
-  margin-bottom: 2rem;
-
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
   font-weight: 600;
+  color: #111;
 }
-
-/* =========================
-   LIST
-========================= */
 
 .process-card ul {
   list-style: none;
 }
 
 .process-card li {
-  padding: 1rem 0;
-
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-
-  color: #555;
-
-  transition: 0.3s;
+  font-size: 0.95rem;
+  color: #666;
+  padding: 0.6rem 0;
+  line-height: 1.6;
 }
 
-.process-card li:hover {
-  color: #111;
-
-  padding-left: 8px;
+.process-card li:before {
+  content: "→ ";
+  color: var(--green);
+  font-weight: 600;
+  margin-right: 0.5rem;
 }
 
-/* =========================
-   TABLET
-========================= */
+/* TABLET */
 
 @media (max-width: 992px) {
-  .process-content {
-    flex-direction: column;
-
-    gap: 3rem;
-  }
-
-  .process-btn {
-    width: 100%;
-  }
-
-  .process-text {
-    width: 100%;
-  }
-
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .process-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .process-top h1 {
+    font-size: 2.2rem;
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 768px) {
   #page6 {
     padding: 6rem 5%;
   }
 
-  .process-top h1 {
-    margin-bottom: 3rem;
-  }
-
-  .process-text p {
-    font-size: 1.05rem;
-
-    line-height: 1.8;
-  }
-
   .process-grid {
     grid-template-columns: 1fr;
   }
 
-  .process-card {
-    border-radius: 18px;
+  .process-top h1 {
+    font-size: 1.8rem;
   }
-}
 
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 480px) {
-  .process-btn button {
-    width: 100%;
-
-    justify-content: center;
+  .process-text p {
+    font-size: 1rem;
   }
 
   .process-card {
@@ -1577,6 +1325,30 @@ button {
   }
 
   .process-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+  }
+
+  .process-card li {
+    font-size: 0.9rem;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+  #page6 {
+    padding: 4rem 5%;
+  }
+
+  .process-top h1 {
+    font-size: 1.5rem;
+  }
+
+  .process-card {
+    padding: 1.2rem;
+  }
+
+  .process-card h3 {
+    font-size: 1rem;
   }
 }
