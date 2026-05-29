@@ -606,6 +606,23 @@ nav {
   overflow: hidden;
 }
 
+/* Inline autoplay video — fills the section like a background */
+.page3-inline-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+/* Fade in the video once it starts playing */
+#page3.video-playing .page3-inline-video {
+  opacity: 1;
+}
+
 /* =========================
    DARK OVERLAY
 ========================= */

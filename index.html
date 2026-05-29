@@ -188,33 +188,22 @@
         </div>
       </div>
       <div id="page3">
-        <!-- BACKGROUND IMAGE -->
+        <!-- INLINE AUTOPLAY VIDEO — plays automatically on scroll -->
+        <video
+          id="inlineShowreel"
+          src="https://res.cloudinary.com/dbijpygjz/video/upload/v1779215989/accern-rhea-cover-big_us0ghc.mp4"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          class="page3-inline-video"
+        ></video>
 
+        <!-- DARK OVERLAY -->
         <div class="page3-overlay"></div>
 
         <!-- CENTER CONTENT -->
-
-        <div class="page3-content">
-          <div class="play-button" id="playBtn">
-            <i class="ri-play-fill"></i>
-          </div>
-
-          <h4>Watch Showreel</h4>
-        </div>
-
-        <!-- VIDEO MODAL -->
-
-        <div class="video-modal" id="videoModal">
-          <video
-            id="showreelVideo"
-            src="https://res.cloudinary.com/dbijpygjz/video/upload/v1779215989/accern-rhea-cover-big_us0ghc.mp4"
-            controls
-          ></video>
-
-          <div class="close-video" id="closeVideo">
-            <i class="ri-close-line"></i>
-          </div>
-        </div>
+        
       </div>
       <div id="page4">
         <div class="portfolio-card">
@@ -474,7 +463,7 @@
         <div class="footer-content">
           <div class="footer-top">
             <div class="footer-logo">
-              <h2>LAZAREV.</h2>
+              <h2>NEBULA.</h2>
               <p>Digital Product Design Agency</p>
             </div>
 
@@ -506,7 +495,7 @@
           </div>
 
           <div class="footer-bottom">
-            <p>&copy; 2024 LAZAREV. All rights reserved.</p>
+            <p>&copy; 2024 NEBULA.. All rights reserved.</p>
             <div class="footer-social">
               <a href="#"><i class="ri-twitter-x-line"></i></a>
               <a href="#"><i class="ri-linkedin-box-line"></i></a>
@@ -515,6 +504,18 @@
           </div>
         </div>
       </footer>
+    </div>
+
+    <!-- VIDEO MODAL — outside #main so position:fixed works with Locomotive -->
+    <div class="video-modal" id="videoModal">
+      <video
+        id="showreelVideo"
+        src="https://res.cloudinary.com/dbijpygjz/video/upload/v1779215989/accern-rhea-cover-big_us0ghc.mp4"
+        controls
+      ></video>
+      <div class="close-video" id="closeVideo">
+        <i class="ri-close-line"></i>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
